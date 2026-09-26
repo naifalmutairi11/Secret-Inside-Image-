@@ -37,7 +37,10 @@ Option 2 (Decrypt): Load ```output.png ```, enter the correct password, and extr
 
 2. **Embedding Flow**:
    - `Payload Bits` -> `Replaces LSBs of R, G, B image pixels`
-  
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 
