@@ -1,4 +1,5 @@
 import os
+import pyfiglet
 from PIL import Image
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -44,8 +45,8 @@ def bits_to_bytes(bits):
 
 def encrypt():
 
-    text = input("Enter Your Massge: ")
-    password = input("Enter Password: ")
+    text = input("\033[1;32mEnter Your Message: \033[0m")
+    password = input("\033[1;31mEnter Password: \033[0m")
 
     salt = os.urandom(16)
     key = get_key(password, salt)
@@ -106,7 +107,7 @@ def encrypt():
             break
 
     image.save(OUTPUT_IMAGE)
-    print("Encryption completed successfully")
+    print("\033[1;32mEncryption completed successfully\033[0m")
     print("image:", OUTPUT_IMAGE)
 
 def decrypt():
@@ -200,7 +201,7 @@ def decrypt():
             None
         )
 
-        print("Decryption completed successfully")
+        print("\033[1;32mDecryption completed successfully\033[0m")
         print('------------------------')
         print(text.decode('utf-8'))
         print('------------------------')
@@ -208,15 +209,17 @@ def decrypt():
 
     except Exception:
 
-        print("Incorrect password")    
+        print("\033[1;31mIncorrect password\033[0m")    
 
 
-print("============================")
-print("   A Secret Inside Image     ")
-print("============================")
+print("\033[1;32m")
+print(pyfiglet.figlet_format("A Secret Inside Image"))
+print("\033[0m")
 
+print("\033[1;31m")
 print("1-Encrypt message into image")
 print("2-Decrypt message from image")
+print("\033[0m")
 
 choice = input("\n Select option: ")
 
